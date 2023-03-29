@@ -15,22 +15,36 @@
 \begin{frame}{Introduction}
 
     \textbf{Optimization}
-    
+
     \begin{itemize}
-    \item A process to find the best solution to a problem based on a set of objectives subject to constraints.
+        \item A process to find the best solution to a problem based on a set of objectives subject to constraints.
     \end{itemize}
 
     \textbf{Importance of Optimization in Real-World Applications}
-    
-    \begin{itemize}
-    \item Optimization is used in various fields, such as finance, engineering, logistics, healthcare, and many others.
-    \item It helps in making better decisions, improving efficiency, reducing costs, and achieving optimal outcomes.
-    \end{itemize}
-    
-\end{frame}
-    
 
-\begin{frame}{Example}
+    \begin{itemize}
+        \item Optimization is used in various fields, such as finance, engineering, logistics, healthcare, and many others.
+        \item It helps in making better decisions, improving efficiency, reducing costs, and achieving optimal outcomes.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Linear Programming}
+    \begin{itemize}
+        \item Linear programming can be used to find the best solution to a problem that involves maximizing or minimizing a linear function, subject to a set of linear constraints.
+        \item The LP formulation involves defining decision variables, an objective function to maximize or minimize, and constraints on the decision variables that must be satisfied.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Components of a Linear Programming Problem}
+    \begin{itemize}
+        \item The decision variables represent the quantities of the items to be produced, purchased, or allocated.
+        \item The objective function is a linear equation that defines the value to be optimized, such as profit, revenue, or cost.
+        \item The constraints are linear inequalities that restrict the values of the decision variables, such as production capacities, material availability, and demand constraints.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Example (problem)}
     \textbf{Example: Clothing Manufacturing}
 
     A clothing manufacturer wants to produce summer and winter shirts, both made from cotton. The summer shirts require 2 yards of blue cotton and 3 yards of red cotton to produce. The winter shirts require 3 yards of blue cotton and 1 yard of red cotton to produce.
@@ -40,66 +54,99 @@
     The manufacturer wants to maximize their profit from selling the summer and winter shirts, while using no more than the available cotton. How many summer and winter shirts should they produce to achieve this goal?
 \end{frame}
 
-\begin{frame}{Linear Programming}
-  \begin{itemize}
-    \item Definition of linear programming
-    \item LP formulation
-    \item Solving LP problems using simplex algorithm
-    \item LP software tools
-  \end{itemize}
+\begin{frame}{Example (break downs)}
+
+    \begin{itemize}
+        \item Decision variables: number of summer and winter shirt
+        \item Objective function: maximize profit.
+        \item Constraints: cotton numbers.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Example (decision variables)}
+
+    To solve this problem, the manufacturer can use linear programming. Let's define the decision variables as follows:
+    \begin{itemize}
+        \item Let x be the number of summer shirts produced.
+        \item Let y be the number of winter shirts produced.
+    \end{itemize}
+
+    The manufacturer can only produce non-negative quantities of shirts. Therefore, the first constraint is decision variables bounds:
+
+    \begin{equation}
+        0 \leq x, y \leq \infty
+    \end{equation}
+
+\end{frame}
+
+\begin{frame}{Example (linear constraints)}
+
+    The amount of blue cotton used for summer shirts is $2x$, and for winter shirts is $3y$. The total amount of blue cotton available is 30 yards. Therefore, the second constraint is:
+
+    \begin{equation}
+        2x + 3y \leq 30
+    \end{equation}
+
+    The amount of red cotton used for summer shirts is $3x$, and for winter shirts is $1y$. The total amount of red cotton available is 20 yards. Therefore, the third constraint is:
+
+    \begin{equation}
+        3x + y \leq 20
+    \end{equation}
+
 \end{frame}
 
 \begin{frame}{Integer Programming}
-  \begin{itemize}
-    \item Definition of integer programming
-    \item IP formulation
-    \item Solving IP problems using branch-and-bound algorithm
-    \item IP software tools
-  \end{itemize}
+    \begin{itemize}
+        \item Definition of integer programming
+        \item IP formulation
+        \item Solving IP problems using branch-and-bound algorithm
+        \item IP software tools
+    \end{itemize}
 \end{frame}
 
 \begin{frame}{Mixed-Integer Linear Programming}
-  \begin{itemize}
-    \item Definition of mixed-integer linear programming
-    \item MILP formulation
-    \item Solving MILP problems using branch-and-bound algorithm
-    \item MILP software tools
-  \end{itemize}
+    \begin{itemize}
+        \item Definition of mixed-integer linear programming
+        \item MILP formulation
+        \item Solving MILP problems using branch-and-bound algorithm
+        \item MILP software tools
+    \end{itemize}
 \end{frame}
 
 \begin{frame}{Mixed-Integer Quadratic Programming}
-  \begin{itemize}
-    \item Definition of mixed-integer quadratic programming
-    \item MIQP formulation
-    \item Solving MIQP problems using branch-and-bound algorithm
-    \item MIQP software tools
-  \end{itemize}
+    \begin{itemize}
+        \item Definition of mixed-integer quadratic programming
+        \item MIQP formulation
+        \item Solving MIQP problems using branch-and-bound algorithm
+        \item MIQP software tools
+    \end{itemize}
 \end{frame}
 
 \begin{frame}{Case Studies and Applications}
-  \begin{itemize}
-    \item Examples of real-world problems that can be solved using integer programming
-    \item Demonstration of solving a sample problem using software tools
-  \end{itemize}
+    \begin{itemize}
+        \item Examples of real-world problems that can be solved using integer programming
+        \item Demonstration of solving a sample problem using software tools
+    \end{itemize}
 \end{frame}
 
 \begin{frame}{Conclusion and Future Directions}
-  \begin{itemize}
-    \item Summary of key points
-    \item Future directions in optimization
-    \item Acknowledgments (if applicable)
-  \end{itemize}
+    \begin{itemize}
+        \item Summary of key points
+        \item Future directions in optimization
+        \item Acknowledgments (if applicable)
+    \end{itemize}
 \end{frame}
 
-\begin{frame}{References}
-  \begin{itemize}
-    \item List of references cited in the presentation
-  \end{itemize}
+\begin{frame}{Acknowledgments}
+    \begin{itemize}
+        \item This whole presentation is made with the assistance of ChatGPT
+    \end{itemize}
 \end{frame}
 
 \begin{frame}{Thank You}
-  \centering
-  \Huge Thank You!
+    \centering
+    \Huge Thank You!
 \end{frame}
 
 \end{document}
