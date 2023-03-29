@@ -1,9 +1,10 @@
 \documentclass{beamer}
+\usepackage{listings}
 
 \usetheme{Madrid}
 \usecolortheme{default}
 
-\title{Integer Programming: MIQP and MILP}
+\title{Mixed-Integer Programming: MILP and MIQP}
 \author{Muhammad Yasirroni}
 \institute{Universitas Gadjah Mada}
 \date{\today}
@@ -17,13 +18,13 @@
     \textbf{Optimization}
 
     \begin{itemize}
-        \item A process to find the best solution to a problem based on a set of objectives subject to constraints.
+        \item Optimization is a process of finding the best solution to a problem based on a set of objectives, subject to constraints.
     \end{itemize}
 
     \textbf{Importance of Optimization in Real-World Applications}
 
     \begin{itemize}
-        \item Optimization is used in various fields, such as finance, engineering, logistics, healthcare, and many others.
+        \item Optimization is a widely used technique in various fields, such as finance, engineering, logistics, healthcare, and many others.
         \item It helps in making better decisions, improving efficiency, reducing costs, and achieving optimal outcomes.
     \end{itemize}
 
@@ -31,16 +32,16 @@
 
 \begin{frame}{Linear Programming}
     \begin{itemize}
-        \item Linear programming can be used to find the best solution to a problem that involves maximizing or minimizing a linear function, subject to a set of linear constraints.
+        \item Linear programming is a technique used to find the best solution to a problem that involves maximizing or minimizing a linear function, subject to a set of linear constraints.
         \item The LP formulation involves defining decision variables, an objective function to maximize or minimize, and constraints on the decision variables that must be satisfied.
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Components of a Linear Programming Problem}
     \begin{itemize}
-        \item The decision variables represent the quantities of the items to be produced, purchased, or allocated.
-        \item The objective function is a linear equation that defines the value to be optimized, such as profit, revenue, or cost.
-        \item The constraints are linear inequalities that restrict the values of the decision variables, such as production capacities, material availability, and demand constraints.
+        \item Decision variables represent the quantities of the items to be produced, purchased, or allocated.
+        \item Objective functions are a linear equation that defines the value to be optimized, such as profit, revenue, or cost.
+        \item Constraints are linear inequalities that restrict the values of the decision variables, such as production capacities, material availability, and demand constraints.
     \end{itemize}
 \end{frame}
 
@@ -57,9 +58,9 @@
 \begin{frame}{Example (break downs)}
 
     \begin{itemize}
-        \item Decision variables: number of summer and winter shirt
+        \item Decision variables: number of summer and winter shirts.
         \item Objective function: maximize profit.
-        \item Constraints: cotton numbers.
+        \item Constraints: available cotton.
     \end{itemize}
 
 \end{frame}
@@ -95,6 +96,74 @@
     \end{equation}
 
 \end{frame}
+
+\begin{frame}{Example (objective function)}
+
+    The objective function that the manufacturer wants to maximize is the total profit:
+
+    \begin{equation}
+        20x + 25y
+    \end{equation}
+
+\end{frame}
+
+\begin{frame}{Example (linear programming formulation)}
+
+    By combining the objective function and the constraints, we can formulate the following linear programming problem:
+
+    Maximize:
+
+    \begin{equation}
+        20x + 25y
+    \end{equation}
+
+    Subject to:
+
+    \begin{align}
+        x, y &\geq 0 \\
+        x, y &\leq \infty \\
+        2x + 3y &\leq 30 \\
+        3x + y &\leq 20 \\
+    \end{align}
+
+\end{frame}
+
+% \begin{frame}[fragile]
+%     \frametitle{Example (solution using cvxpy #1)}
+    
+%     \begin{lstlisting}[language=python]
+%         import cvxpy as cp
+        
+%         # Define the decision variables
+%         x = cp.Variable(nonneg=True)
+%         y = cp.Variable(nonneg=True)
+        
+%         # Define the objective function
+%         objective = cp.Maximize(20*x + 25*y)
+        
+%         # Define the constraints
+%         constraints = [
+%             2*x + 3*y <= 30,
+%             3*x + 1*y <= 20,
+%         ]
+%     \end{lstlisting}
+    
+% \end{frame}
+
+% \begin{frame}[fragile]
+%     \frametitle{Example (solution using cvxpy #2)}
+    
+%     \begin{lstlisting}[language=python]
+%         # Define and solve the problem
+%         problem = cp.Problem(objective, constraints)
+%         problem.solve()
+        
+%         # Print the optimal solution and optimal value
+%         print("Optimal solution: x =", x.value, ", y =", y.value)
+%         print("Optimal value:", problem.value)
+%     \end{lstlisting}
+    
+% \end{frame}
 
 \begin{frame}{Integer Programming}
     \begin{itemize}
