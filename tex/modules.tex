@@ -1,0 +1,79 @@
+\documentclass{article}
+\usepackage{amsmath} % Required for displaying equations
+\usepackage{xcolor} % Required for defining custom colors
+\usepackage{indentfirst}
+
+\title{Beautiful Linear Programming}
+\author{Muhammad Yasirroni}
+\date{\today}
+
+\definecolor{eq}{RGB}{0,0,0}
+
+\begin{document}
+
+\maketitle
+
+\section{Linear Programming}
+
+\definecolor{opt}{RGB}{203,23,206}
+\definecolor{obj}{RGB}{45,177,93}
+\definecolor{const}{RGB}{251,0,29}
+\definecolor{var}{RGB}{18,110,213}
+
+\begin{equation}
+    \textcolor{opt}{\text{minimize~}}
+    \color{obj} q^T
+    \color{var} x
+    \color{eq}
+\end{equation}
+
+\begin{equation}
+    \color{const} A
+    \color{var} x
+    \color{const} \preceq b
+    \color{eq}
+\end{equation}
+
+To find \textcolor{var}{decision variables} that \textcolor{opt}{maximize or minimize} a \textcolor{obj}{linear objective function}, subject to a set of \textcolor{const}{linear constraints}.
+
+The $\color{var} x$ is the vector of decision variables, $\color{obj} q$ and $\color{const} b$ are vectors of coefficients, and $\color{const} A$ is a matrix of coefficients with number of rows and columns equal to the number of \textcolor{const}{linear constraints} and \textcolor{var}{decision variable}, respectively.
+
+\section{Quadratic Programming}
+
+\definecolor{opt}{RGB}{203,23,206}
+\definecolor{obj}{RGB}{45,177,93}
+\definecolor{const}{RGB}{251,0,29}
+\definecolor{var}{RGB}{18,110,213}
+
+\begin{equation}
+    \textcolor{opt}{\text{minimize~}}
+    \color{obj} \frac{1}{2} 
+    \color{var} x^T
+    \color{obj} Q
+    \color{var} x
+    \color{eq} + 
+    \color{obj} q^T
+    \color{var} x
+    \color{eq}
+\end{equation}
+
+\begin{equation}
+    \color{const} A
+    \color{var} x
+    \color{const} \preceq b
+    \color{eq}
+\end{equation}
+
+To find \textcolor{var}{decision variables} that \textcolor{opt}{maximize or minimize} a \textcolor{obj}{quadratic objective function}, subject to a set of \textcolor{const}{linear constraints}.
+
+The $\color{var} x$ is the vector of \textcolor{var}{decision variable}, $\color{obj} q$ and $\color{const} b$ are vectors of coefficients, $\color{const} A$ is a matrix of coefficients with number of rows and columns equal to the number of \textcolor{const}{linear constraints} and \textcolor{var}{decision variable}, respectively, and $\color{obj} Q$ is a diagonal matrix of coefficients with number of rows and columns equal to the number of \textcolor{var}{decision variable}.
+
+\section{Linear Constraints}
+
+Each \textcolor{const}{constraint} in \textcolor{const}{linear constraints} must be expressed in linear expressions terms. It means that each \textcolor{const}{constraint} must be expressed as a summation of \textcolor{const}{constants} that is multiplied with \textcolor{var}{decision variables} raised to the power of 1. The \textcolor{const}{constants} itself can be $0$ if a \textcolor{var}{decision variable} is not used in that \textcolor{const}{constraint}. The use of $\color{const} \preceq$ in \textcolor{const}{constraints} means that each row of $\color{const} A \color{var} x$ must be less than $\color{const} b$.
+
+\section{Types of Decision Variables}
+
+\textcolor{var}{Decision variable} can be strictly integer or continues. If an optimization problem consist of both types of \textcolor{var}{decision variables}, it is called \textcolor{var}{mixed-integer} programming. If a \textcolor{var}{mixed-integer} programming problem has \textcolor{obj}{linear objective function} it is called \textcolor{var}{mixed-integer} \textcolor{obj}{linear} programming. If a \textcolor{var}{mixed-integer} programming problem has \textcolor{obj}{quadratic objective function}, it is called \textcolor{var}{mixed-integer} \textcolor{obj}{quadratic} programming.
+
+\end{document}

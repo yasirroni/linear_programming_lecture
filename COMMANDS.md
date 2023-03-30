@@ -3,5 +3,5 @@
 ## tex
 
 ```shell
-pdflatex -interaction=batchmode optimization.tex
+pdflatex -interaction=batchmode presentation.tex
 ```
