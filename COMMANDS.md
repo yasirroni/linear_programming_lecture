@@ -4,4 +4,5 @@
 
 ```shell
 pdflatex -interaction=batchmode presentation.tex
+pdflatex -interaction=batchmode module.tex
 ```
