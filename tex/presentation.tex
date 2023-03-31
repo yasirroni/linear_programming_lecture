@@ -1,5 +1,6 @@
 \documentclass{beamer}
 \usepackage{listings}
+\usepackage{indentfirst}
 
 \usetheme{Madrid}
 \usecolortheme{default}
@@ -8,6 +9,17 @@
 \author{Muhammad Yasirroni}
 \institute{Universitas Gadjah Mada}
 \date{\today}
+
+\definecolor{opt}{RGB}{203,23,206}
+\definecolor{obj}{RGB}{45,177,93}
+\definecolor{const}{RGB}{251,0,29}
+\definecolor{var}{RGB}{18,110,213}
+\definecolor{eq}{RGB}{0,0,0}
+
+\hyphenpenalty=10000
+\hbadness=10000
+\tolerance=1
+\emergencystretch=\maxdimen
 
 \begin{document}
 
@@ -31,18 +43,95 @@
 \end{frame}
 
 \begin{frame}{Linear Programming}
+    \begin{equation}
+        \textcolor{opt}{\text{minimize~}}
+        \color{obj} q^T
+        \color{var} x
+        \color{eq}
+    \end{equation}
+
+    \begin{equation}
+        \color{const} A
+        \color{var} x
+        \color{const} \preceq b
+        \color{eq}
+    \end{equation}
+
+    To find \textcolor{var}{decision variables} that \textcolor{opt}{minimize} (or \textcolor{opt}{maximize}) a \textcolor{obj}{linear objective function}, subject to a set of \textcolor{const}{linear constraints}.
+
+    The $\color{var} x$ is the vector of decision variables, $\color{obj} q$ and $\color{const} b$ are vectors of coefficients, and $\color{const} A$ is a matrix of coefficients with number of rows and columns equal to the number of \textcolor{const}{linear constraints} and \textcolor{var}{decision variable}, respectively.
+
+\end{frame}
+
+\begin{frame}{Quadratic Programming}
+
+    \begin{equation}
+        \textcolor{opt}{\text{minimize~}}
+        \color{obj} \frac{1}{2} 
+        \color{var} x^T
+        \color{obj} Q
+        \color{var} x
+        \color{eq} + 
+        \color{obj} q^T
+        \color{var} x
+        \color{eq}
+    \end{equation}
+
+    \begin{equation}
+        \color{const} A
+        \color{var} x
+        \color{const} \preceq b
+        \color{eq}
+    \end{equation}
+
+    To find \textcolor{var}{decision variables} that \textcolor{opt}{minimize} (or \textcolor{opt}{maximize}) a \textcolor{obj}{quadratic objective function}, subject to a set of \textcolor{const}{linear constraints}.
+
+    The $\color{var} x$ is the vector of \textcolor{var}{decision variable}, $\color{obj} q$ and $\color{const} b$ are vectors of coefficients, $\color{const} A$ is a matrix of coefficients with number of rows and columns equal to the number of \textcolor{const}{linear constraints} and \textcolor{var}{decision variable}, respectively, and $\color{obj} Q$ is a diagonal matrix of coefficients with number of rows and columns equal to the number of \textcolor{var}{decision variable}.
+\end{frame}
+
+\begin{frame}{Formulation and Components}
+    \textbf{Formulation}
+
     \begin{itemize}
-        \item Linear programming is a technique used to find the best solution to a problem that involves maximizing or minimizing a linear function, subject to a set of linear constraints.
-        \item The LP formulation involves defining decision variables, an objective function to maximize or minimize, and constraints on the decision variables that must be satisfied.
+        \item The formulation involves defining \textcolor{var}{decision variables} to find, an \textcolor{obj}{objective function} to \textcolor{opt}{minimize} or \textcolor{opt}{maximize}, and \textcolor{const}{linear constraints} on the \textcolor{var}{decision variables} that must be satisfied.
+        \item It needs to be noted that linear programming and quadratic programming is a problem formulation, not an algorithm. % Some example algorithms to solve linear programming are simplex, interior-point, and lagrange. Another example algorithm is branch-and-bound if there is integer decision variable.
+    \end{itemize}
+
+    \textbf{Components}
+
+    \begin{itemize}
+        \item \textcolor{var}{Decision variables} represent the quantities of the items to be produced, purchased, or allocated.
+        \item \textcolor{obj}{Objective function} is an expression that defines the value to be optimized, such as profit, revenue, or cost.
+        \item \textcolor{const}{Constraints} are inequalities that restrict the values of the \textcolor{var}{decision variables}, such as production capacities, material availability, and demand constraints, and must be in the form of linear expression.
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Components of a Linear Programming Problem}
+\begin{frame}{Decision Variables}
     \begin{itemize}
-        \item Decision variables represent the quantities of the items to be produced, purchased, or allocated.
-        \item Objective functions are a linear equation that defines the value to be optimized, such as profit, revenue, or cost.
-        \item Constraints are linear inequalities that restrict the values of the decision variables, such as production capacities, material availability, and demand constraints.
+        \item \textcolor{var}{Decision variable} can be strictly integer or continuous.
+        \item If an optimization problem consist only strictly integer \textcolor{var}{decision variables}, it is called \textcolor{var}{integer} programming.
+        \item If an optimization problem consist of both integer and continuous of \textcolor{var}{decision variables}, it is called \textcolor{var}{mixed-integer} programming.
     \end{itemize}
+\end{frame}
+
+\begin{frame}{Objective Functions}
+
+    \begin{itemize}
+        \item \textcolor{obj}{Quadratic} programming is \textcolor{obj}{linear} programming with \textcolor{obj}{quadratic objective function}.
+        \item \textcolor{var}{mixed-integer} \textcolor{obj}{linear} programming is \textcolor{var}{mixed-integer} programming with \textcolor{obj}{linear objective function}
+        \item \textcolor{var}{mixed-integer} \textcolor{obj}{quadratic} programming is \textcolor{var}{mixed-integer} programming with \textcolor{obj}{quadratic objective function}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Linear Constraints}
+
+    \begin{itemize}
+        \item Each \textcolor{const}{constraint} in \textcolor{const}{linear constraints} must be expressed in linear expressions terms. It means that each \textcolor{const}{constraint} must be expressed as a summation of \textcolor{const}{constants} that is multiplied with \textcolor{var}{decision variables} raised to the power of 1.
+        \item The \textcolor{const}{constants} itself can be $0$ if a \textcolor{var}{decision variable} is not used in that \textcolor{const}{constraint}.
+        \item The use of $\color{const} \preceq$ in \textcolor{const}{constraints} means that each row of $\color{const} A \color{var} x$ must be less than the value of $\color{const} b$ at that row.
+    \end{itemize}
+
 \end{frame}
 
 \begin{frame}{Example (problem)}
@@ -126,85 +215,6 @@
         3x + y &\leq 20 \\
     \end{align}
 
-\end{frame}
-
-% \begin{frame}[fragile]
-%     \frametitle{Example (solution using cvxpy #1)}
-    
-%     \begin{lstlisting}[language=python]
-%         import cvxpy as cp
-        
-%         # Define the decision variables
-%         x = cp.Variable(nonneg=True)
-%         y = cp.Variable(nonneg=True)
-        
-%         # Define the objective function
-%         objective = cp.Maximize(20*x + 25*y)
-        
-%         # Define the constraints
-%         constraints = [
-%             2*x + 3*y <= 30,
-%             3*x + 1*y <= 20,
-%         ]
-%     \end{lstlisting}
-    
-% \end{frame}
-
-% \begin{frame}[fragile]
-%     \frametitle{Example (solution using cvxpy #2)}
-    
-%     \begin{lstlisting}[language=python]
-%         # Define and solve the problem
-%         problem = cp.Problem(objective, constraints)
-%         problem.solve()
-        
-%         # Print the optimal solution and optimal value
-%         print("Optimal solution: x =", x.value, ", y =", y.value)
-%         print("Optimal value:", problem.value)
-%     \end{lstlisting}
-    
-% \end{frame}
-
-\begin{frame}{Integer Programming}
-    \begin{itemize}
-        \item Definition of integer programming
-        \item IP formulation
-        \item Solving IP problems using branch-and-bound algorithm
-        \item IP software tools
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Mixed-Integer Linear Programming}
-    \begin{itemize}
-        \item Definition of mixed-integer linear programming
-        \item MILP formulation
-        \item Solving MILP problems using branch-and-bound algorithm
-        \item MILP software tools
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Mixed-Integer Quadratic Programming}
-    \begin{itemize}
-        \item Definition of mixed-integer quadratic programming
-        \item MIQP formulation
-        \item Solving MIQP problems using branch-and-bound algorithm
-        \item MIQP software tools
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Case Studies and Applications}
-    \begin{itemize}
-        \item Examples of real-world problems that can be solved using integer programming
-        \item Demonstration of solving a sample problem using software tools
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Conclusion and Future Directions}
-    \begin{itemize}
-        \item Summary of key points
-        \item Future directions in optimization
-        \item Acknowledgments (if applicable)
-    \end{itemize}
 \end{frame}
 
 \begin{frame}{Acknowledgments}
