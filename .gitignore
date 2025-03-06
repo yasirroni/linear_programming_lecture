@@ -35,8 +35,12 @@
 # private folder to ignore in git
 private/
 
-# editor
+# dot files
 .vscode/
+.DS_Store
+
+# env
+env/
 
 # playground
 main/playground.*
